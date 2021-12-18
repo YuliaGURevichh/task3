@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from math import prod
 import os
+
 TESTING = False
 if 'tests.py' in os.listdir():
     import tests
@@ -54,9 +55,10 @@ def main(file_name):
         if not TESTING:
             return
 
+        print(tests.finding(Get.all(nums)))
 
 
-    except (OverflowError, MemoryError):
+    except (OverflowError , MemoryError):
         print(f'Too big numbers in {file_name}. Please edit it.')
 
 
