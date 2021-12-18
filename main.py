@@ -6,6 +6,7 @@ import os
 if 'tests.py' in os.listdir():
     import tests
     TESTING = True
+    tests.python_version()
 else:
     TESTING = False
 
@@ -78,6 +79,7 @@ def finding(nums_str):
         Get.all(Nums.to_int(nums_str))
     )
 
+
 def main():
     try:
         Nums.file_name = 'little.txt'
@@ -109,7 +111,10 @@ def main():
         )
 
     except (OverflowError , MemoryError):
-        print(f'Too big numbers in {Get.file_name()}. Please edit it.')
+        print(
+            f'Too big numbers in {Get.file_name()}.'
+            'Please edit it.'
+        )
 
 
 if __name__ == "__main__":
