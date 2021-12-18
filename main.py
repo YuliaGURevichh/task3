@@ -1,11 +1,13 @@
 from dataclasses import dataclass
+from inspect import cleandoc
 from math import prod
 import os
 
-TESTING = False
 if 'tests.py' in os.listdir():
     import tests
     TESTING = True
+else:
+    TESTING = False
 
 
 def make_files():
@@ -38,20 +40,30 @@ class Get:
     def prod(nums):
         return prod(nums)
 
+    @staticmethod
+    def file_name():
+        if not Nums.file_name and TESTING:
+            file_name = tests.Nums.file_name
+        else:
+            file_name = Nums.file_name
+        if not file_name:
+            file_name = 'unknown'
+        return file_name
+
     def all(nums):
-        return (
-            f'minimal: {Get.min(nums)}\n'
-            f'maximal: {Get.max(nums)}\n'
-            f'product: {Get.prod(nums)}\n'
-            f'sum: {Get.sum(nums)}'
-        )
+        return cleandoc(f'''
+            minimal: {Get.min(nums)}
+            maximal: {Get.max(nums)}
+            product: {Get.prod(nums)}
+            sum: {Get.sum(nums)}
+        ''')
 
 @dataclass
 class Nums:
     def to_int(nums):
         return list(map(int, nums))
 
-    filename = ""
+    file_name = None
 
     str_big = Get.nums('big.txt')
     str_little = Get.nums('little.txt')
@@ -68,11 +80,13 @@ def finding(nums_str):
 
 def main():
     try:
-        Nums.filename = 'little.txt'
+        Nums.file_name = 'little.txt'
         print(finding(Nums.str_little))
 
         if not TESTING:
             return
+
+        Nums.file_name = None
 
         print(
             tests.finding(
@@ -95,7 +109,7 @@ def main():
         )
 
     except (OverflowError , MemoryError):
-        print(f'Too big numbers in {Nums.filename}. Please edit it.')
+        print(f'Too big numbers in {Get.file_name()}. Please edit it.')
 
 
 if __name__ == "__main__":
