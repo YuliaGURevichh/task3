@@ -8,6 +8,19 @@ if 'tests.py' in os.listdir():
     TESTING = True
 
 
+def make_files():
+    if 'little.txt' not in os.listdir():
+        text = " ".join(str(i) for i in range(1, 30))
+        file = open("little.txt", "w")
+        file.write(text)
+
+    if 'big.txt' not in os.listdir():
+        text = " ".join(str(i) for i in range(1, 60))
+        file = open("big.txt", "w")
+        file.write(text)
+
+make_files()
+
 @dataclass
 class Get:
     def nums(file_name):
@@ -33,34 +46,57 @@ class Get:
             f'sum: {Get.sum(nums)}'
         )
 
-def make_files():
-    if 'little.txt' not in os.listdir():
-        text = " ".join(str(i) for i in range(1, 30))
-        file = open("little.txt", "w")
-        file.write(text)
+@dataclass
+class Nums:
+    def to_int(nums):
+        return list(map(int, nums))
 
-    if 'big.txt' not in os.listdir():
-        text = " ".join(str(i) for i in range(1, 60))
-        file = open("big.txt", "w")
-        file.write(text)
+    filename = ""
 
-def main(file_name):
+    str_big = Get.nums('big.txt')
+    str_little = Get.nums('little.txt')
+
+    big = to_int(str_big)
+    little = to_int(str_little)
+
+
+def finding(nums_str):
+    return (
+        f'in file: {", ".join(nums_str)}\n' +
+        Get.all(Nums.to_int(nums_str))
+    )
+
+def main():
     try:
-        make_files()
-        nums = Get.nums(file_name)
-        print(f'in file: {", ".join(nums)}\n')
-        nums = list(map(int, nums))
-        print(Get.all(nums))
+        Nums.filename = 'little.txt'
+        print(finding(Nums.str_little))
 
         if not TESTING:
             return
 
-        print(tests.finding(Get.all(nums)))
+        print(
+            tests.finding(
+                Get.all(Nums.little)
+            )
+        )
 
+        print(
+            tests.timer(
+                func_to_time_test=finding,
+                nums_list=[
+                    Nums.str_big,
+                    Nums.str_little,
+                ],
+                names = [
+                    'big.txt',
+                    'little.txt',
+                ]
+            )
+        )
 
     except (OverflowError , MemoryError):
-        print(f'Too big numbers in {file_name}. Please edit it.')
+        print(f'Too big numbers in {Nums.filename}. Please edit it.')
 
 
 if __name__ == "__main__":
-    main(file_name="little.txt")
+    main()
