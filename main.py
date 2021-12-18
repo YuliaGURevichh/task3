@@ -52,12 +52,14 @@ class Get:
         return file_name
 
     def all(nums):
-        return cleandoc(f'''
+        return cleandoc(
+            f'''
             minimal: {Get.min(nums)}
             maximal: {Get.max(nums)}
             product: {Get.prod(nums)}
             sum: {Get.sum(nums)}
-        ''')
+            '''
+        )
 
 @dataclass
 class Nums:

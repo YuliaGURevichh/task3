@@ -18,24 +18,31 @@ def finding(tested_object):
 
     Nums.file_name = 'little.txt'
 
-    expected = cleandoc('''
+    expected = cleandoc(
+        '''
         minimal: 1
         maximal: 29
         product: 8841761993739701954543616000000
         sum: 435
-    ''')
+        '''
+    )
 
     output = tested_object
     answer = '\n' + cleandoc(finding.__doc__)
     if output == expected:
         answer += '\npassed successfull'
     else:
-        answer += (f'''
-            failed, expected:
+        answer += (
+            f'''
+            failed,
+            
+            expected:
             {expected}
+            
             get:
-            {output}
-        '''.replace(" " * 12, ""))
+            {output}\
+            '''.replace(" " * 12, "")
+        )
 
     return answer
 
@@ -63,7 +70,8 @@ def timer(func_to_time_test, nums_list, names):
         '\n' +
         cleandoc(timer.__doc__) +
         '\n' +
-        cleandoc(f'''
+        cleandoc(
+            f'''
             with {names[0]} process ends in {execution_time[0]} seconds
             with {names[1]} process ends in {execution_time[1]} seconds
             difference: {
@@ -71,7 +79,8 @@ def timer(func_to_time_test, nums_list, names):
                     float(execution_time[0]) - float(execution_time[1])
                 ))
             } seconds
-        ''')
+            '''
+        )
     )
 
 
@@ -85,10 +94,12 @@ def python_version():
         print('python version test passed\n')
     else:
         print(
-            cleandoc(f'''
+            cleandoc(
+                f'''
                 wrong python version
                 required: 3.10.0 final
                 your: {version_info}
                 program may runs with errors
-            ''') + '\n'
+                '''
+            ) + '\n'
         )
