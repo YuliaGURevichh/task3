@@ -13,21 +13,21 @@ expected = cleandoc(
     minimal: 1
     maximal: 29
     product: 8841761993739701954543616000000
-    sum: 435.
+    sum: 435
     '''
 )
 
-output = finding(Get.all(Nums.little))
+output = Get.all(Nums.little)
 if output == expected:
     print(
         cleandoc(
-            finding.__doc__
+            __doc__
         ) + '\npassed successfull'
     )
 else:
     raise RuntimeError(
         cleandoc(
-            finding.__doc__
+            __doc__
         ) +
         f'''
         failed,
@@ -37,5 +37,5 @@ else:
 
         get:
         {output}\
-        '''.replace(" " * 12, "")
+        '''.replace(" " * 4, "")
     )

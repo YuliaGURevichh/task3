@@ -1,4 +1,4 @@
-name: python_version_test
+name: correctness_test
 on: [push]
 jobs:
   run_tests:
