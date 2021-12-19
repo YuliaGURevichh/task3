@@ -17,7 +17,7 @@ def main():
         minimal: 1
         maximal: 29
         product: 8841761993739701954543616000000
-        sum: 435 MAKE ERROR
+        sum: 435
         '''
     )
 
