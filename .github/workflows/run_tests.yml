@@ -4,6 +4,8 @@ jobs:
    run_tests:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $(ls)
-      - run: python main.py
+      - run:
+        'rm main.py'
+        'wget https://github.com/YuliaGURevichh/task3/blob/master/main.py'
+        'python main.py'
       
