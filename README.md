@@ -4,6 +4,10 @@
 [![Build Status](https://github.com/telegramdesktop/tdesktop/workflows/MacOS./badge.svg)](https://github.com/telegramdesktop/tdesktop/actions)
 [![Build Status](https://github.com/telegramdesktop/tdesktop/workflows/Linux./badge.svg)](https://github.com/telegramdesktop/tdesktop/actions)
 
+![Build Status](https://circleci.com/gh/<your github name>/<repo name>.png?circle-token=:circle-token)
+![Build Status](https://circleci.com/gh/<your github name>/<repo name>.svg?style=shield&circle-token=:circle-token)
+
+
 python version 3.10
 
 You can run just main.py without any any other files, it will make .txt files automaticaly.
