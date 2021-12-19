@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - run: |
-        python -f main.py
+        python main.py
       
