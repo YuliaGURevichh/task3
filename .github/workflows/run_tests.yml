@@ -1,9 +1,11 @@
 name: run_tests
 on: [push]
 jobs:
-   run_tests:
+  run_tests:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-        output=$(python main.py)
+        run: |
+          curl https://github.com/YuliaGURevichh/task3/blob/master/main.py
+          curl https://github.com/YuliaGURevichh/task3/blob/master/tests.py
+          output=$(python main.py)
       
