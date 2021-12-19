@@ -1,4 +1,4 @@
-name: python_version_test
+name: python version test
 on: [push]
 jobs:
   run_tests:
