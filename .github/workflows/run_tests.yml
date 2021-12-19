@@ -5,7 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        curl https://github.com/YuliaGURevichh/task3/blob/master/main.py
-        curl https://github.com/YuliaGURevichh/task3/blob/master/tests.py
         output=$(python main.py)
       
