@@ -5,7 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - run: |
-        rm -f main.py
-        wget https://github.com/YuliaGURevichh/task3/blob/master/main.py
-        python main.py
+        python -f main.py
       
