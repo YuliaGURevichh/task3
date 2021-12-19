@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - run: |
-        python main.py
+        output=$(python release_mail_generator.py)
       
