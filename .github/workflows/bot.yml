@@ -9,4 +9,5 @@ jobs:
       with:
         python-version: '3.10.0'
     - run: |
+        pip install requests
         output=$(python bot.py)
