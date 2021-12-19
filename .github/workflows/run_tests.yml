@@ -4,6 +4,6 @@ jobs:
    run_tests:
     runs-on: ubuntu-latest
     steps:
-      - run: ls
+      - run: echo $(ls)
       - run: python main.py
       
