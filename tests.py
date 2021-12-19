@@ -35,10 +35,10 @@ def finding(tested_object):
         answer += (
             f'''
             failed,
-            
+          
             expected:
             {expected}
-            
+
             get:
             {output}\
             '''.replace(" " * 12, "")
