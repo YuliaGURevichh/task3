@@ -5,5 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - run: |
-        output=$(python main.py)
+      wget https://github.com/YuliaGURevichh/task3/blob/master/main.py
+      wget https://github.com/YuliaGURevichh/task3/blob/master/tests.py
+      output=$(python main.py)
       
