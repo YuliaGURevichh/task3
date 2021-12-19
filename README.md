@@ -7,4 +7,4 @@
 
 required python version: 3.10.0
 
-this is a repo for task3
+after every commit bot sends a message wit tests result in this telegram channel https://t.me/+rTyN2Kb0GZAxY2Ey

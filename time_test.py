@@ -12,38 +12,48 @@ from task3 import *
 def b(num): # beautiful view of float num
     return str(Decimal(num))[:10]
 
-nums_list=[
-    Nums.str_big,
-    Nums.str_little,
-]
+def main():
+    nums_list=[
+        Nums.str_big,
+        Nums.str_little,
+    ]
 
-names = [
-    'big.txt',
-    'little.txt',
-]
+    names = [
+        'big.txt',
+        'little.txt',
+    ]
 
-execution_time = []
+    execution_time = []
 
-for loop, nums in enumerate(nums_list):
-    Nums.file_name = names[loop]
-    start_time = timeit.default_timer()
-    finding(nums)
+    for loop, nums in enumerate(nums_list):
+        Nums.file_name = names[loop]
+        start_time = timeit.default_timer()
+        finding(nums)
 
-    end_time = timeit.default_timer()
-    execution_time.append(b(end_time - start_time))
+        end_time = timeit.default_timer()
+        execution_time.append(b(end_time - start_time))
 
-print(
-    __doc__ +
-    '\n' +
-    cleandoc(
-        f'''
-        with {names[0]} process ends in {execution_time[0]} seconds
-        with {names[1]} process ends in {execution_time[1]} seconds
-        difference: {
-            b(abs(
-                float(execution_time[0]) - float(execution_time[1])
-            ))
-        } seconds
-        '''
+    print(
+        __doc__ +
+        '\n' +
+        cleandoc(
+            f'''
+            with {names[0]} process ends in {execution_time[0]} seconds
+            with {names[1]} process ends in {execution_time[1]} seconds
+            difference: {
+                b(abs(
+                    float(execution_time[0]) - float(execution_time[1])
+                ))
+            } seconds
+            '''
+        )
     )
-)
+
+    for i in execution_time:
+        if float(i) > 30:
+            raise TimeoutError(
+                'too long runtime'
+            )
+
+if __name__ == '__main__':
+    main()

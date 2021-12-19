@@ -6,31 +6,39 @@ for finding the minimum, maximum, addition and multiplication
 from task3 import *
 
 
-Nums.file_name = 'little.txt'
+class CorrectnessError(Exception):
+    pass
 
-expected = cleandoc(
-    '''
-    minimal: 1
-    maximal: 29
-    product: 8841761993739701954543616000000
-    sum: 435
-    '''
-)
+def main():
+    Nums.file_name = 'little.txt'
 
-output = Get.all(Nums.little)
-if output == expected:
-    print(__doc__ + 'passed successfull'
+    expected = cleandoc(
+        '''
+        minimal: 1
+        maximal: 29
+        product: 8841761993739701954543616000000
+        sum: 435
+        '''
     )
-else:
-    raise RuntimeError(
-        __doc__ +
-        f'''\
-        failed,
 
-        expected:
-        {expected}
+    output = Get.all(Nums.little)
+    if output == expected:
+        print(__doc__ + 'passed successfull'
+        )
+    else:
 
-        get:
-        {output}\
-        '''.replace(" " * 4, "")
-    )
+        raise CorrectnessError(
+            __doc__ +
+            f'''\
+            failed,
+
+            expected:
+            {expected}
+
+            get:
+            {output}\
+            '''.replace(" " * 4, "")
+        )
+
+if __name__ == "__main__":
+    main()
