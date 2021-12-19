@@ -47,7 +47,7 @@ def finding(tested_object):
     return answer
 
 
-def b(num):
+def b(num): # beautiful view of float num
     return str(Decimal(num))[:10]
 
 

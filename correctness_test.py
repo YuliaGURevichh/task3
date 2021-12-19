@@ -19,17 +19,12 @@ expected = cleandoc(
 
 output = Get.all(Nums.little)
 if output == expected:
-    print(
-        cleandoc(
-            __doc__
-        ) + '\npassed successfull'
+    print(__doc__ + 'passed successfull'
     )
 else:
     raise RuntimeError(
-        cleandoc(
-            __doc__
-        ) +
-        f'''
+        __doc__ +
+        f'''\
         failed,
 
         expected:
