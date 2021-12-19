@@ -5,12 +5,12 @@ import correctness_test
 import time_test
 
 def msg(text):
-    chat_id = '-1001568249366'
+    chat_id = '-1001660193356'
     url = (
         'https://'
         'api.telegram.org'
         '/'
-        f'{TOKEN}'
+        f'bot{TOKEN}'
         '/'
         'sendMessage'
         '?'

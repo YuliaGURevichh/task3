@@ -1,1 +1,1 @@
-TOKEN = 'bot5054242752:AAEzQi8wwa2fOvIh-xSwsfaiFupkFs_m7r0'
+TOKEN = '5046252594:AAGwcYQb3UzNUKgsgtX-TGbOVanmAzNrOGw'
