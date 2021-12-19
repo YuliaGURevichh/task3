@@ -79,4 +79,3 @@ def finding(nums_str):
         f'in file: {", ".join(nums_str)}\n' +
         Get.all(Nums.to_int(nums_str))
     )
-

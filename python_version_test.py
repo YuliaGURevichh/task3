@@ -1,5 +1,10 @@
+'''
+any other test at my discretion
+'''
+
 from sys import version_info
 from inspect import cleandoc
+
 
 required_version = '3.10.0 final'
 
